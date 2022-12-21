@@ -1,0 +1,126 @@
+body {
+  background-image: linear-gradient(180deg, #f4f49f 0%, #ffffff 100%);
+  /* height: 19vh; */
+  background-repeat: no-repeat;
+}
+/* common */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffffff;
+}
+h1.head-titele {
+  color: #35892a;
+  text-align: center;
+}
+
+/* index.php */
+
+form {
+  background-color: #ffffff;
+  height: 450px;
+  width: 400px;
+  margin: auto;
+  margin-top: 7%;
+  padding: 30px 10px 15px 10px;
+  border-radius: 15%;
+}
+.form-control {
+  width: 75%;
+  margin: auto;
+  /* color: #ffffff; */
+  margin-top: 16px;
+  margin-bottom: 4px;
+  /* background: #35892a; */
+}
+.bg-success {
+  background: #35892a !important;
+}
+
+form h1,
+form h2 {
+  color: #35892a;
+  margin: auto;
+  margin-left: 12%;
+}
+form h3 {
+  color: #b4bfb3;
+  margin: auto;
+  font-size: 18px;
+  margin-left: 12%;
+}
+
+a {
+  color: #35892a;
+  text-decoration: none;
+}
+.bank-img {
+  /* width: 426px; */
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    height: auto;
+    width: auto;
+    border-radius: 10%;
+  }
+  .bank-img {
+    max-width: 396px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  .bank-img img {
+    width: 100%;
+  }
+}
+/* intro pages */
+
+.intro h1,
+.intro h2 {
+  color: #35892a;
+  margin: auto;
+}
+.intro h3 {
+  color: #b4bfb3;
+  margin: auto;
+  font-size: 18px;
+  margin-left: 12%;
+}
+.intro-btn {
+  width: fit-content;
+  margin: auto;
+  color: #ffffff;
+  margin-top: 16px;
+  margin-bottom: 50px;
+  background: #35892a;
+  padding: 9px 29px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .intro h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .intro h3 {
+    margin-top: 12%;
+    margin-left: 0;
+  }
+}

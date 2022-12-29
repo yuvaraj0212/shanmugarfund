@@ -9,6 +9,7 @@ body {
 }
 
 a,
+.dropdown,
 li {
   text-decoration: none;
   list-style: none;
@@ -109,6 +110,12 @@ li.nav-items {
   margin: 10px 20px;
   background: rgb(241, 220, 123);
 }
+.icon .fa-paper-plane-o,
+.fa-user-circle-o,
+.fa-pause,
+.fa-thumbs-o-up {
+  font-size: 45px;
+}
 /* for mobile */
 @media screen and (max-width: 600px) {
   .nav {
@@ -123,6 +130,7 @@ li.nav-items {
   }
   section {
     height: 80%;
+    overflow-y: scroll;
   }
   footer {
     height: 9%;
@@ -135,15 +143,22 @@ li.nav-items {
   }
   .fa {
     margin-right: 15px;
-
     font-size: 26px;
+    color: #35892a;
+  }
+  .icon .fa-paper-plane-o,
+  .fa-user-circle-o,
+  .fa-pause,
+  .fa-thumbs-o-up {
+    font-size: 45px;
   }
   .nav-items:hover {
     border: none;
   }
   .mobile-nav {
     position: absolute;
-    z-index: 1;
+    z-index: 9;
+    overflow-y: auto;
     padding: 6px;
     height: 80vh;
     width: 68%;

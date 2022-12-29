@@ -11,8 +11,8 @@ if (isset($_POST["SendRequest"])) {
     $planamt = $_POST["planeAmount"];
     $id = (int) $_SESSION['userDetails']['id'];
     $name = (int) $_SESSION['userDetails']['name'];
-    $due = (string) ((int) $planamt / 9.17 * 100);
-    $sql = "UPDATE `user_table` SET `chit_status` = 'request', `chit_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
+    $due = (string) ((int) $planamt / 11 * 100);
+    $sql = "UPDATE `user_table` SET `education_status` = 'request', `education_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
     $result = mysqli_query($db, $sql);
     if ($result) {
         $sql = "SELECT * FROM `user_table`  WHERE `user_table`.`id` = $id;";
@@ -39,7 +39,7 @@ if (isset($_POST["SendRequest"])) {
         $mail->Body = $bodyContent;
         if ($mail->send()) {
             echo '<script> 
-            window.location.href="./home.php";
+            window.location.href="./education.php";
             </script>';
         } else {
             echo $mail->ErrorInfo;
@@ -75,9 +75,9 @@ if (isset($_POST["SendRequest"])) {
         <h1 class="head-titele">Shanmugar Gold & Savings chits</h1>
         <form class="form" method="POST">
             <div class="form-layout">
-                <h2><b>Welcome to Chit fund schemes</b></h2>
+                <h2><b>Welcome to Education fund schemes</b></h2>
                 <div class="img-row">
-                    <h3>Interest 9.5%, months-20</h3>
+                    <h3>Interest 11%, months-12</h3>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Name" name="name" readonly
@@ -91,23 +91,19 @@ if (isset($_POST["SendRequest"])) {
                     <input type="number" class="form-control" placeholder="Enter mobile" name="phone" readonly
                         autocomplete="off" value="<?php echo $_SESSION['userDetails']['phone']; ?>">
                 </div>
-                <p class='text-center'><b>select your chit amount:</b></p>
+                <p class='text-center'><b>select your plan amount:</b></p>
                 <div class="form-group">
                     <!-- <input type="" class="form-control" placeholder="Password" name="passsword" required
                         autocomplete="off"> -->
 
                     <select name="planeAmount" id="cars" class="form-control form-select" required autocomplete="off">
-                        <option value="50,000">50,000</option>
-                        <option value="1,00,000">1,00,000</option>
-                        <option value="2,00,000">2,00,000</option>
-                        <option value="3,00,000">3,00,000</option>
-                        <option value="4,00,000">4,00,000</option>
-                        <option value="5,00,000">5,00,000</option>
-                        <option value="6,00,000">6,00,000</option>
-                        <option value="7,00,000">7,00,000</option>
-                        <option value="8,00,000">8,00,000</option>
-                        <option value="9,00,000">9,00,000</option>
-                        <option value="10,00,000">10,00,000</option>
+                        <option value="25000">25000 x 12</option>
+                        <option value="75000 ">75000 x 12</option>
+                        <option value="100000">100000 x 12</option>
+                        <option value="125000">125000 x 12</option>
+                        <option value="150000">150000 x 12</option>
+                        <option value="175000">175000 x 12</option>
+                        <option value="200000">7,00,000 x 12</option>
 
                     </select>
                 </div>

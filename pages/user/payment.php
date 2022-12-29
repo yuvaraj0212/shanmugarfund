@@ -14,7 +14,7 @@ if (!isset($_SESSION['login'])) {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
+    <title>Shanmugarfunds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -79,10 +79,10 @@ if (!isset($_SESSION['login'])) {
 
         </div>
     </section>
-    <footer class="">
+    <footer>
         <a href="./home.php" class=''><i class="fa fa-home" aria-hidden="true"></i></a>
-        <a href="" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
-        <a href="" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
     </footer>
     <script>
         function myFunction() {

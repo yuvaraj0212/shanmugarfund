@@ -12,7 +12,7 @@ if (isset($_POST["SendRequest"])) {
     $id = (int) $_SESSION['userDetails']['id'];
     $name = (int) $_SESSION['userDetails']['name'];
     $due = (string) ((int) $planamt / 9.17 * 100);
-    $sql = "UPDATE `user_table` SET `chit_status` = 'request', `chit_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
+    $sql = "UPDATE `user_table` SET `festival_status` = 'request', `festival_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
     $result = mysqli_query($db, $sql);
     if ($result) {
         $sql = "SELECT * FROM `user_table`  WHERE `user_table`.`id` = $id;";
@@ -32,14 +32,14 @@ if (isset($_POST["SendRequest"])) {
         <h1>name :  ' . $_SESSION['userDetails']['name'] . ' </h1>
         <h1>phone : ' . $_SESSION['userDetails']['phone'] . ' </h1>
         <h1>email: ' . $_SESSION['userDetails']['email'] . ' </h1>
-        <h1>amount :  ' . $_SESSION['userDetails']['chit_amount'] . ' </h1>';
+        <h1>amount :  ' . $_SESSION['userDetails']['festival_amount'] . ' </h1>';
 
 
 
         $mail->Body = $bodyContent;
         if ($mail->send()) {
             echo '<script> 
-            window.location.href="./home.php";
+            window.location.href="./festival.php";
             </script>';
         } else {
             echo $mail->ErrorInfo;
@@ -73,7 +73,7 @@ if (isset($_POST["SendRequest"])) {
 <body>
     <div class="container">
         <h1 class="head-titele">Shanmugar Gold & Savings chits</h1>
-        <form class="form" method="POST">
+        <form class="form mb-lg-5" method="POST">
             <div class="form-layout">
                 <h2><b>Welcome to Chit fund schemes</b></h2>
                 <div class="img-row">
@@ -91,24 +91,28 @@ if (isset($_POST["SendRequest"])) {
                     <input type="number" class="form-control" placeholder="Enter mobile" name="phone" readonly
                         autocomplete="off" value="<?php echo $_SESSION['userDetails']['phone']; ?>">
                 </div>
-                <p class='text-center'><b>select your chit amount:</b></p>
+
                 <div class="form-group">
-                    <!-- <input type="" class="form-control" placeholder="Password" name="passsword" required
-                        autocomplete="off"> -->
+                    <p class='text-center'><b>select your plan:</b></p>
+                    <select name="plane" id="cars" class="form-control form-select" required autocomplete="off">
+                        <option value="Dewali">Dewali Saving Scheme</option>
+                        <option value="Pongal">Pongal Saving Scheme</option>
+                        <option value="Bakrid">Bakrid Saving Scheme</option>
+                        <option value="Ramzan">Ramzan Saving Scheme</option>
+                        <option value="FestivalSpecial">Festival Special Scheme</option>
+                    </select>
+                </div>
 
+                <div class="form-group">
+                    <p class='text-center'><b>select your amount:</b></p>
                     <select name="planeAmount" id="cars" class="form-control form-select" required autocomplete="off">
-                        <option value="50,000">50,000</option>
-                        <option value="1,00,000">1,00,000</option>
-                        <option value="2,00,000">2,00,000</option>
-                        <option value="3,00,000">3,00,000</option>
-                        <option value="4,00,000">4,00,000</option>
-                        <option value="5,00,000">5,00,000</option>
-                        <option value="6,00,000">6,00,000</option>
-                        <option value="7,00,000">7,00,000</option>
-                        <option value="8,00,000">8,00,000</option>
-                        <option value="9,00,000">9,00,000</option>
-                        <option value="10,00,000">10,00,000</option>
-
+                        <option value="3000">3000</option>
+                        <option value="6000">3000</option>
+                        <option value="9000">9000</option>
+                        <option value="12000">12000</option>
+                        <option value="15000">15000</option>
+                        <option value="18000">18000</option>
+                        <option value="24000">24000</option>
                     </select>
                 </div>
                 <button type="submit" name="SendRequest" class=" form-control bg-success">Send Request</button>

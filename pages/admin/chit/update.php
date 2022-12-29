@@ -9,6 +9,22 @@ if (isset($_POST["SendRequest"])) {
     $phone = $_POST["phone"];
     $id = $_POST["id"];
     $status = $_POST["status"];
+    // Add a recipient 
+    $mail->addAddress($email);
+    // Set email format to HTML 
+    $mail->isHTML(true);
+
+    // Mail subject 
+    $mail->Subject = 'THANKS FOR SUBSCRIBING SHANMUGAR FUNDS ';
+
+    // Mail body content 
+    $bodyContent = '<h1>Chit funds Status</h1>
+<p>Hi ' . $name . ', </p><br>
+Your request Now ' . $status . '.<br>
+pls check your mobile app
+';
+
+    $mail->Body = $bodyContent;
 
     if ($status === 'approved') {
         $sql = "  INSERT INTO `chit_funds_table`(`userId`,`chit_amount`, `blance_amount`, `paid_amount`, `name`, `phone`) 
@@ -16,43 +32,48 @@ if (isset($_POST["SendRequest"])) {
         $result = $db->query($sql);
 
         if ($result == TRUE) {
-            $sql = "UPDATE `user_table` SET `chit_status` = '$status'  WHERE `id`=$id";
+            $sql = "UPDATE `user_table` SET `chit_status` = '$status',`chit_amount`='$planAmount'  WHERE `id`=$id";
             $result = $db->query($sql);
 
             if ($result == TRUE) {
+
+
+                if (!$mail->send()) {
+                    echo '<script> 
+                    alert(' . $mail->ErrorInfo . ')
+                    </script>';
+                }
                 echo '<script> 
-        window.location.href="./request.php";
-        </script>';
-
+                window.location.href="./request.php";
+                </script>';
             } else {
-
                 echo "Error:" . $sql . "<br>" . $db->error;
-
             }
         } else {
-
             echo "Error:" . $sql . "<br>" . $db->error;
-
         }
 
     } else {
-        $sql = "UPDATE `user_table` SET `chit_status` = '$status'  WHERE `id`=$id";
-    }
-    $result = $db->query($sql);
+        $sql = "UPDATE `user_table` SET `chit_status` = '$status' ,`chit_amount`='$planAmount' WHERE `id`=$id";
 
-    if ($result == TRUE) {
+        $result = $db->query($sql);
 
-        // header("location:./home.php");
-        echo '<script> 
+        if ($result == TRUE) {
+
+            if (!$mail->send()) {
+                echo '<script> 
+                alert(' . $mail->ErrorInfo . ')
+                </script>';
+            }
+            echo '<script> 
     window.location.href="./request.php";
     </script>';
+        } else {
+            echo $mail->ErrorInfo;
+        }
 
-    } else {
-
-        echo "Error:" . $sql . "<br>" . $db->error;
 
     }
-
 }
 
 if (isset($_GET['id'])) {
@@ -88,7 +109,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
+    <title>Shanmugarfunds</title>
     <!-- Bootstrap only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -130,11 +151,163 @@ if (isset($_GET['id'])) {
                     <input type="number" class="form-control" placeholder="Enter mobile" name="phone" readonly
                         autocomplete="off" value="<?php echo $phone; ?>">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter plane" name="plan_amount" readonly
-                        autocomplete="off" value="<?php echo $planAmount; ?>">
-                </div>
-
+                        autocomplete="off" value="<?#php echo $planAmount; ?>">
+                </div> -->
+                <select id="cars" class="form-control form-select" required autocomplete="off" name="plan_amount"
+                    value="<?php echo $planAmount; ?>">
+                    <?php
+                    switch ($planAmount) {
+                        case '50,000':
+                            echo ('  <option value="50,000" selected>50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            ;
+                            break;
+                        case "1,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000"selected>1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "2,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000"selected>2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "3,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000"selected>3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            ;
+                            break;
+                        case "4,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000"selected>4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "5,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000"selected>5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "6,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000"selected>6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            ;
+                            break;
+                        case "7,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000"selected>7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "8,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000"selected>8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "9,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000"selected>9,00,000</option>
+        <option value="10,00,000">10,00,000</option>');
+                            break;
+                        case "10,00,000":
+                            echo ('  <option value="50,000">50,000</option>
+        <option value="1,00,000">1,00,000</option>
+        <option value="2,00,000">2,00,000</option>
+        <option value="3,00,000">3,00,000</option>
+        <option value="4,00,000">4,00,000</option>
+        <option value="5,00,000">5,00,000</option>
+        <option value="6,00,000">6,00,000</option>
+        <option value="7,00,000">7,00,000</option>
+        <option value="8,00,000">8,00,000</option>
+        <option value="9,00,000">9,00,000</option>
+        <option value="10,00,000"selected>10,00,000</option>');
+                            break;
+                    }
+                    ?>
+                </select>
                 <div class="form-group">
 
                     <select name="status" id="cars" class="form-control" required autocomplete="off">

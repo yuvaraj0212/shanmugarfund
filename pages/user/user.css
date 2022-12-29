@@ -116,6 +116,7 @@ li.nav-items {
   }
   section {
     height: 80%;
+    overflow-y: scroll;
   }
   footer {
     height: 9%;
@@ -304,4 +305,18 @@ button.add-chit-btn {
 }
 
 @media screen and (max-width: 600px) {
+}
+/* Gold page */
+
+/* .gold-add-img {
+  max-width: 100%;
+} */
+
+@media screen and (max-width: 600px) {
+  .gold-add-img {
+    max-width: 100%;
+  }
+  .gold-add-img img {
+    width: 80%;
+  }
 }

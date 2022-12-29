@@ -12,7 +12,7 @@ if (isset($_POST["SendRequest"])) {
     $id = (int) $_SESSION['userDetails']['id'];
     $name = (int) $_SESSION['userDetails']['name'];
     $due = (string) ((int) $planamt / 9.17 * 100);
-    $sql = "UPDATE `user_table` SET `chit_status` = 'request', `chit_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
+    $sql = "UPDATE `user_table` SET `gold_status` = 'request', `gold_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
     $result = mysqli_query($db, $sql);
     if ($result) {
         $sql = "SELECT * FROM `user_table`  WHERE `user_table`.`id` = $id;";
@@ -32,14 +32,14 @@ if (isset($_POST["SendRequest"])) {
         <h1>name :  ' . $_SESSION['userDetails']['name'] . ' </h1>
         <h1>phone : ' . $_SESSION['userDetails']['phone'] . ' </h1>
         <h1>email: ' . $_SESSION['userDetails']['email'] . ' </h1>
-        <h1>amount :  ' . $_SESSION['userDetails']['chit_amount'] . ' </h1>';
+        <h1>amount :  ' . $_SESSION['userDetails']['gold_amount'] . ' </h1>';
 
 
 
         $mail->Body = $bodyContent;
         if ($mail->send()) {
             echo '<script> 
-            window.location.href="./home.php";
+            window.location.href="./gold.php";
             </script>';
         } else {
             echo $mail->ErrorInfo;
@@ -75,9 +75,9 @@ if (isset($_POST["SendRequest"])) {
         <h1 class="head-titele">Shanmugar Gold & Savings chits</h1>
         <form class="form" method="POST">
             <div class="form-layout">
-                <h2><b>Welcome to Chit fund schemes</b></h2>
+                <h2><b>Welcome to Gold Savings schemes</b></h2>
                 <div class="img-row">
-                    <h3>Interest 9.5%, months-20</h3>
+                    <h3> Months-12</h3>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Name" name="name" readonly
@@ -91,23 +91,22 @@ if (isset($_POST["SendRequest"])) {
                     <input type="number" class="form-control" placeholder="Enter mobile" name="phone" readonly
                         autocomplete="off" value="<?php echo $_SESSION['userDetails']['phone']; ?>">
                 </div>
-                <p class='text-center'><b>select your chit amount:</b></p>
                 <div class="form-group">
                     <!-- <input type="" class="form-control" placeholder="Password" name="passsword" required
                         autocomplete="off"> -->
-
+                    <p class='text-center'><b>select your gold amount:</b></p>
                     <select name="planeAmount" id="cars" class="form-control form-select" required autocomplete="off">
-                        <option value="50,000">50,000</option>
-                        <option value="1,00,000">1,00,000</option>
-                        <option value="2,00,000">2,00,000</option>
-                        <option value="3,00,000">3,00,000</option>
-                        <option value="4,00,000">4,00,000</option>
-                        <option value="5,00,000">5,00,000</option>
-                        <option value="6,00,000">6,00,000</option>
-                        <option value="7,00,000">7,00,000</option>
-                        <option value="8,00,000">8,00,000</option>
-                        <option value="9,00,000">9,00,000</option>
-                        <option value="10,00,000">10,00,000</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                        <option value="3000">3000</option>
+                        <option value="4000">4000</option>
+                        <option value="5000">5000</option>
+                        <option value="6000">6000</option>
+                        <option value="7000">7000</option>
+                        <option value="8000">8000</option>
+                        <option value="9000">9000</option>
+                        <option value="10000">10000</option>
 
                     </select>
                 </div>

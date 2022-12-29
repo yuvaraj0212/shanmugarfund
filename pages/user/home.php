@@ -19,7 +19,7 @@ $_SESSION['userDetails'] = $row;
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
+    <title>Shanmugarfunds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -76,7 +76,7 @@ $_SESSION['userDetails'] = $row;
         </nav>
     </header>
     <section class="home-section">
-        <div class="body-content">
+        <div class="body-content ">
             <h1> Welcome to </h1>
             <h3>Shanmugar Gold & Savings Chits. </h3>
             <h1>Good Morning,
@@ -85,40 +85,51 @@ $_SESSION['userDetails'] = $row;
             <?php
             if ($_SESSION['userDetails']['chit_status'] === null) {
                 echo ('
+                <a href="chit.php">
                 <div class="balance-card text-center">
                 <h3><a href="./chitRequest.php" class="add-chit"> Add New Chit</a></h3>
             </div>
+            </a>
                ');
             }
             if ($_SESSION['userDetails']['chit_status'] === "request") {
-                echo ('<div class="balance-card text-center">
+                echo ('
+                <a href="chit.php">
+                <div class="balance-card text-center">
             <h5>Your Request has send succesfully</h5>
             <h4>Pls Wait Admin Conformation</h4>
-        </div>');
+        </div></a>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "pending") {
-                echo ('<div class="balance-card text-center">
+                echo ('
+                <a href="chit.php">
+                <div class="balance-card text-center">
             <h5>Your Request has Pending</h5>
-        </div>');
+        </div></a>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "approved") {
-                echo (' <div class="balance-card">
+                echo (' 
+                <div>
+                <a href="chit.php">
+                <div class="balance-card">
                   <h1>Savings chit balance</h1>
                   <span id="chit-blance">Rs.30,000</span>
               </div>
+              </a>
               <div class="balance-amount">
                   <h4>Total Amount Paid - </h4>
                   <h4>Balance Amount - </h4>
+              </div> 
               </div>');
             }
             ?>
 
         </div>
     </section>
-    <footer class="">
+    <footer>
         <a href="./home.php" class=''><i class="fa fa-home" aria-hidden="true"></i></a>
-        <a href="" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
-        <a href="" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
     </footer>
     <script>
         function myFunction() {

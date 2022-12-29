@@ -48,10 +48,10 @@ $mail->isSMTP(); // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers 
 $mail->SMTPAuth = true; // Enable SMTP authentication 
 $mail->Username = 'yuvaraj.webrixtec@gmail.com'; // SMTP username 
-$mail->Password = 'irmlwgtlbjzvnaki'; // app password  get gmail
+$mail->Password = 'nfttfcptgfosivjz'; // app password  get gmail
 $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted 
 $mail->Port = 465; // TCP port to connect to 
-
+// irmlwgtlbjzvnaki
 // Sender info 
 $mail->setFrom('demo@example.com', 'SenderName');
 

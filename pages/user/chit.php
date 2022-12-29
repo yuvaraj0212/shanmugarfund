@@ -22,7 +22,7 @@ $_SESSION['userDetails'] = $row;
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
+    <title>Shanmugarfunds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -78,11 +78,11 @@ $_SESSION['userDetails'] = $row;
             </ul>
         </nav>
     </header>
-    <section class="chit-section">
-        <div class="chit-head">
+    <section class="home-section">
+        <!-- <div class="chit-head">
             <h2>Chit & funds</h2>
-        </div>
-        <div class="chit-body">
+        </div> -->
+        <div class="body-content">
             <!-- <div>
                 <button class="add-chit-btn">New Chit</button>
             </div> -->
@@ -129,10 +129,10 @@ $_SESSION['userDetails'] = $row;
 
         </div>
     </section>
-    <footer class="">
+    <footer>
         <a href="./home.php" class=''><i class="fa fa-home" aria-hidden="true"></i></a>
-        <a href="" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
-        <a href="" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
+        <a href="./payment.php" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
     </footer>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>

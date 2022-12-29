@@ -58,9 +58,10 @@ if (!isset($_SESSION['admin'])) {
                         Chit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./request.php">request chit</a>
-                        <a class="dropdown-item" href="./approved.php">approved chit</a>
-                        <a class="dropdown-item" href="./pending.php">pending chit</a>
+
+                        <a class="dropdown-item" href="../chit/request.php">request chit</a>
+                        <a class="dropdown-item" href="../chit/approved.php">approved chit</a>
+                        <a class="dropdown-item" href="../chit/pending.php">pending chit</a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -72,6 +73,28 @@ if (!isset($_SESSION['admin'])) {
                         <a class="dropdown-item" href="../gold/request.php">request chit</a>
                         <a class="dropdown-item" href="../gold/approved.php">approved chit</a>
                         <a class="dropdown-item" href="../gold/pending.php">pending chit</a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Education
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="./request.php">request chit</a>
+                        <a class="dropdown-item" href="./approved.php">approved chit</a>
+                        <a class="dropdown-item" href="./pending.php">pending chit</a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Festivel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../festivel/request.php">request chit</a>
+                        <a class="dropdown-item" href="../festivel/approved.php">approved chit</a>
+                        <a class="dropdown-item" href="../festivel/pending.php">pending chit</a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -88,9 +111,10 @@ if (!isset($_SESSION['admin'])) {
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
                         class="nav-items">chit</a>
                     <ul class="plans ms-3">
-                        <li><a href="./request.php" class="plans-item">Requst</a></li>
-                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
-                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
+
+                        <li><a href="../chit/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../chit/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../chit/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
@@ -99,6 +123,22 @@ if (!isset($_SESSION['admin'])) {
                         <li><a href="../gold/request.php" class="plans-item">Requst</a></li>
                         <li><a href="../gold/pending.php" class="plans-item">Pending</a></li>
                         <li><a href="../gold/approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Education</a>
+                    <ul class="plans ms-3">
+                        <li><a href="./request.php" class="plans-item">Requst</a></li>
+                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Festivel</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../festival/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../festivel/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../festivel/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
@@ -112,11 +152,10 @@ if (!isset($_SESSION['admin'])) {
     </header>
     <section class="admin-section my-lg-5 container table-responsive">
         <table id="example" class="table table-striped table-bordered bg-light" style="width:100%">
-            <h2>Chit Approved Details</h2>
+            <h2>Education Approved Details</h2>
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Batch_No</th>
                     <th>Name</th>
                     <th>Phones</th>
                     <th>Plan Amount</th>
@@ -130,7 +169,7 @@ if (!isset($_SESSION['admin'])) {
             <tbody>
                 <?php
                 include "../../../config.php";
-                $sql = "SELECT * FROM chit_funds_table ";
+                $sql = "SELECT * FROM education_funds_table ";
                 $result = $db->query($sql);
                 // INSERT INTO `chit_funds_table`(`userId`, `blance_amount`, `paid_amount`, `name`, `phone`) VALUES (16,'1,80,000','20,000','yuvaraj','7092327466')
                 if ($result->num_rows > 0) {
@@ -152,61 +191,14 @@ if (!isset($_SESSION['admin'])) {
                         }
 
                         return $value;
-
-                        // switch ($batch) {
-                        //     case ($batch <= 1):
-                        //         return '<span class="badge badge-info">batch 1</span>';
-                
-                        //     case ($batch > 1 && $batch <= 2):
-                        //         return '<span class="badge badge-info">batch 2</span>';
-                
-                        //     case ($batch > 2 && $batch <= 3):
-                        //         return '<span class="badge badge-info">batch 3</span>';
-                
-                        //     case ($batch > 3 && $batch <= 4):
-                        //         return '<span class="badge badge-info">batch 4</span>';
-                
-                        //     case ($batch > 4 && $batch <= 5):
-                        //         return '<span class="badge badge-info">batch 5</span>';
-                
-                        //     case ($batch > 5 && $batch <= 6):
-                        //         return '<span class="badge badge-info">batch 6</span>';
-                
-                        //     case ($batch > 6 && $batch <= 7):
-                        //         return '<span class="badge badge-info">batch 7</span>';
-                
-                        //     case ($batch > 7 && $batch <= 8):
-                        //         return '<span class="badge badge-info">batch 8</span>';
-                
-                        //     case ($batch > 8 && $batch <= 9):
-                        //         return '<span class="badge badge-info">batch 9</span>';
-                
-                        //     case ($batch > 9 && $batch <= 10):
-                        //         return '<span class="badge badge-info">batch 10</span>';
-                
-                        //     case ($batch > 10 && $batch <= 11):
-                        //         return '<span class="badge badge-info">batch 11</span>';
-                
-                        //     case ($batch > 11 && $batch <= 12):
-                        //         return '<span class="badge badge-info">batch 12</span>';
-                
-                        //     case ($batch > 12 && $batch <= 13):
-                        //         return '<span class="badge badge-info">batch 13</span>';
-                
-                        //     case ($batch > 13 && $batch <= 14):
-                        //         return '<span class="badge badge-info">batch 14</span>';
-                        //     case ($batch > 14 && $batch <= 15):
-                        //         return '<span class="badge badge-info">batch 15</span>';
-                        // }
                     }
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo ("<tr>
                             <th>" . $row["userId"] . "</th>
-                            <th>" . getBatchNo($row["batch_no"]) . "</th> 
                             <th>" . $row["name"] . "</th> 
                             <th>" . $row["phone"] . "</th>
-                            <th>" . $row["chit_amount"] . "</th>
+                            <th>" . $row["education_amount"] . "</th>
                             <th>" . $row["blance_amount"] . "</th>
                             <th>" . $row["paid_amount"] . "</th>
                             <th>" . $row["paid_amount"] . "</th>

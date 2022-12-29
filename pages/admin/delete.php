@@ -3,17 +3,14 @@
 include "../../config.php";
 
 if (isset($_GET['id'])) {
-
     $user_id = $_GET['id'];
-
-    $sql = "DELETE FROM `chit_table` WHERE `id`='$user_id'";
-
+    $sql = "DELETE FROM user_table WHERE `id`=$user_id";
     $result = $db->query($sql);
 
-    if ($result == TRUE) {
-        // header("location:./home.php");
+    if ($result === true) {
+        echo ($user_id);
         echo '<script> 
-        window.location.href=".home.php";
+        window.location.href="./home.php";
         </script>';
 
     } else {

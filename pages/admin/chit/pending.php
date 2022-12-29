@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Admin</title>
+    <title>Shanmugarfunds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- css custom -->
     <link rel='stylesheet' type='text/css' media='screen' href='../admin.css'>
@@ -50,14 +50,7 @@ if (!isset($_SESSION['admin'])) {
             </div>
             <nav class="nav">
                 <a href="../profile.php" class="nav-items">Profile</a>
-                <!-- <div class="dropdown nav-items">Plans
-                    <span class="dropdown-content">
-                        <a href="./chit.php" class="dropdown-item">Chit Funds</a>
-                        <a href="./gold.php" class="dropdown-item">Gold</a>
-                        <a href="./education.php" class="dropdown-item">Education Saving Plan </a>
-                        <a href="./festival.php" class="dropdown-item">Festival Saving Plans</a>
-                    </span>
-                </div> -->
+
                 <!-- <a href="./payment.php" class="nav-items">Payment</a> -->
                 <div class="dropdown nav-items ">
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -68,6 +61,17 @@ if (!isset($_SESSION['admin'])) {
                         <a class="dropdown-item" href="./request.php">request chit</a>
                         <a class="dropdown-item" href="./approved.php">approved chit</a>
                         <a class="dropdown-item" href="./pending.php">pending chit</a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Gold
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../gold/request.php">request chit</a>
+                        <a class="dropdown-item" href="../gold/approved.php">approved chit</a>
+                        <a class="dropdown-item" href="../gold/pending.php">pending chit</a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -81,8 +85,24 @@ if (!isset($_SESSION['admin'])) {
             <ul>
                 <li class="nav-items"><i class="fa fa-user" aria-hidden="true"></i> <a href="../profile.php">Profile</a>
                 </li>
-                <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">chit</a>
+                    <ul class="plans ms-3">
+                        <li><a href="./request.php" class="plans-item">Requst</a></li>
+                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
+                    </ul>
                 </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Gold</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../gold/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../gold/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../gold/approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
+                <!-- </li> -->
                 <li class="nav-items"><i class="fa fa-users" aria-hidden="true"></i><a href="../invite.php">Invite</a>
                 </li>
                 <li class="nav-items logout"><i class="fa fa-sign-out" aria-hidden="true"></i><a

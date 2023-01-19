@@ -52,9 +52,9 @@ if (!isset($_SESSION['login'])) {
                         Chit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./chit/request.php">request chit</a>
-                        <a class="dropdown-item" href="./chit/approved.php">approved chit</a>
-                        <a class="dropdown-item" href="./chit/pending.php">pending chit</a>
+                        <a class="dropdown-item" href="./chit/request.php">request </a>
+                        <a class="dropdown-item" href="./chit/approved.php">approved </a>
+                        <a class="dropdown-item" href="./chit/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -63,9 +63,9 @@ if (!isset($_SESSION['login'])) {
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./gold/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./gold/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./gold/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./gold/request.php">request</a>
+                        <a class="dropdown-item" href="./gold/approved.php">approved</a>
+                        <a class="dropdown-item" href="./gold/pending.php">pending</a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -74,9 +74,9 @@ if (!isset($_SESSION['login'])) {
                         Education
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./edu/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./edu/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./edu/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./edu/request.php">request</a>
+                        <a class="dropdown-item" href="./edu/approved.php">approved</a>
+                        <a class="dropdown-item" href="./edu/pending.php">pending</a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -85,9 +85,9 @@ if (!isset($_SESSION['login'])) {
                         Festivel
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./festivel/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./festivel/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./festivel/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./festivel/request.php">request</a>
+                        <a class="dropdown-item" href="./festivel/approved.php">approved</a>
+                        <a class="dropdown-item" href="./festivel/pending.php">pending</a>
                     </div>
                 </div>
                 <a href="./invite.php" class="nav-items">Invite</a>

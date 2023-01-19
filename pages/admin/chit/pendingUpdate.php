@@ -5,13 +5,13 @@ include "../../../config.php";
 if (isset($_POST["SendRequest"])) {
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $planAmount = $_POST["plan_amount"];
+    $planAmount = str_replace(',', '', $_POST["plan_amount"]);
     $phone = $_POST["phone"];
     $id = $_POST["id"];
     $status = $_POST["status"];
     if ($status === 'approved') {
         $sql = "  INSERT INTO `chit_funds_table`(`userId`,`chit_amount`, `blance_amount`, `paid_amount`, `name`, `phone`) 
-        VALUES ($id,'$planAmount','0','0','$name','$phone')";
+        VALUES ($id,'$planAmount','$planAmount','0','$name','$phone')";
         $result = $db->query($sql);
 
         if ($result == TRUE) {
@@ -132,151 +132,151 @@ if (isset($_GET['id'])) {
                     value="<?php echo $planAmount; ?>">
                     <?php
                     switch ($planAmount) {
-                        case '50,000':
-                            echo ('  <option value="50,000" selected>50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case '50000':
+                            echo ('  <option value="50000" selected>50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             ;
                             break;
-                        case "1,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000"selected>1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "100000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000"selected>100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "2,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000"selected>2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "200000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000"selected>200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "3,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000"selected>3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "300000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000"selected>300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             ;
                             break;
-                        case "4,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000"selected>4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "400000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000"selected>400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "5,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000"selected>5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "500000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000"selected>500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "6,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000"selected>6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "600000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000"selected>600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             ;
                             break;
-                        case "7,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000"selected>7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "700000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000"selected>700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "8,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000"selected>8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "800000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000"selected>800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "9,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000"selected>9,00,000</option>
-        <option value="10,00,000">10,00,000</option>');
+                        case "900000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000"selected>900000</option>
+        <option value="1000000">1000000</option>');
                             break;
-                        case "10,00,000":
-                            echo ('  <option value="50,000">50,000</option>
-        <option value="1,00,000">1,00,000</option>
-        <option value="2,00,000">2,00,000</option>
-        <option value="3,00,000">3,00,000</option>
-        <option value="4,00,000">4,00,000</option>
-        <option value="5,00,000">5,00,000</option>
-        <option value="6,00,000">6,00,000</option>
-        <option value="7,00,000">7,00,000</option>
-        <option value="8,00,000">8,00,000</option>
-        <option value="9,00,000">9,00,000</option>
-        <option value="10,00,000"selected>10,00,000</option>');
+                        case "1000000":
+                            echo ('  <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="200000">200000</option>
+        <option value="300000">300000</option>
+        <option value="400000">400000</option>
+        <option value="500000">500000</option>
+        <option value="600000">600000</option>
+        <option value="700000">700000</option>
+        <option value="800000">800000</option>
+        <option value="900000">900000</option>
+        <option value="1000000"selected>1000000</option>');
                             break;
                     }
                     ?>

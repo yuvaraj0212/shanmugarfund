@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Shanmugarfunds</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- css custom -->
     <link rel='stylesheet' type='text/css' media='screen' href='../admin.css'>
@@ -59,9 +59,9 @@ if (!isset($_SESSION['admin'])) {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                        <a class="dropdown-item" href="./request.php">request</a>
-                        <a class="dropdown-item" href="./approved.php">approved</a>
-                        <a class="dropdown-item" href="./pending.php">pending</a>
+                        <a class="dropdown-item" href="../chit/request.php">request </a>
+                        <a class="dropdown-item" href="../chit/approved.php">approved </a>
+                        <a class="dropdown-item" href="../chit/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -70,9 +70,9 @@ if (!isset($_SESSION['admin'])) {
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../gold/request.php">request</a>
-                        <a class="dropdown-item" href="../gold/approved.php">approved</a>
-                        <a class="dropdown-item" href="../gold/pending.php">pending</a>
+                        <a class="dropdown-item" href="../gold/request.php">request </a>
+                        <a class="dropdown-item" href="../gold/approved.php">approved </a>
+                        <a class="dropdown-item" href="../gold/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -81,9 +81,9 @@ if (!isset($_SESSION['admin'])) {
                         Education
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../edu/request.php">request</a>
-                        <a class="dropdown-item" href="../edu/approved.php">approved</a>
-                        <a class="dropdown-item" href="../edu/pending.php">pending</a>
+                        <a class="dropdown-item" href="../edu/request.php">request </a>
+                        <a class="dropdown-item" href="../edu/approved.php">approved </a>
+                        <a class="dropdown-item" href="../edu/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -92,9 +92,9 @@ if (!isset($_SESSION['admin'])) {
                         Festivel
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../festivel/request.php">request</a>
-                        <a class="dropdown-item" href="../festivel/approved.php">approved</a>
-                        <a class="dropdown-item" href="../festivel/pending.php">pendin</a>
+                        <a class="dropdown-item" href="./request.php">request </a>
+                        <a class="dropdown-item" href="./approved.php">approved </a>
+                        <a class="dropdown-item" href="./pending.php">pending </a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -112,9 +112,9 @@ if (!isset($_SESSION['admin'])) {
                         class="nav-items">chit</a>
                     <ul class="plans ms-3">
 
-                        <li><a href="./request.php" class="plans-item">Requst</a></li>
-                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
-                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
+                        <li><a href="../chit/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../chit/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../chit/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
@@ -136,9 +136,9 @@ if (!isset($_SESSION['admin'])) {
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
                         class="nav-items">Festivel</a>
                     <ul class="plans ms-3">
-                        <li><a href="../festival/request.php" class="plans-item">Requst</a></li>
-                        <li><a href="../festivel/pending.php" class="plans-item">Pending</a></li>
-                        <li><a href="../festivel/approved.php" class="plans-item">Approved</a></li>
+                        <li><a href="./request.php" class="plans-item">Requst</a></li>
+                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
@@ -152,12 +152,13 @@ if (!isset($_SESSION['admin'])) {
     </header>
     <section class="admin-section my-lg-5 container table-responsive">
         <table id="example" class="table table-striped table-bordered bg-light" style="width:100%">
-            <h2>Chit Pending Details</h2>
+            <h2>Festival Request Details</h2>
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
                     <th>Phones</th>
+                    <th>Festival</th>
                     <th>Plan Amount</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -166,7 +167,7 @@ if (!isset($_SESSION['admin'])) {
             <tbody>
                 <?php
                 include "../../../config.php";
-                $sql = "SELECT * FROM user_table where chit_status = 'pending'";
+                $sql = "SELECT * FROM user_table where festival_status = 'request'";
                 $result = $db->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -193,9 +194,10 @@ if (!isset($_SESSION['admin'])) {
                             <th>" . $row["id"] . "</th>
                             <th>" . $row["name"] . "</th> 
                             <th>" . $row["phone"] . "</th>
-                            <th>" . $row["chit_amount"] . "</th>
-                            <th>" . getstatus($row["chit_status"]) . "</th> 
-                            <td><a class='btn btn-info' href='pendingUpdate.php?id=" . $row['id'] . " '>Edit</a></td>
+                            <th>" . $row["festival"] . "</th>
+                            <th>" . $row["festival_amount"] . "</th>
+                            <th>" . getstatus($row["festival_status"]) . "</th> 
+                            <td><a class='btn btn-info' href='update.php?id=" . $row['id'] . " '>Edit</a></td>
                        
                          </tr>");
                     }
@@ -209,7 +211,7 @@ if (!isset($_SESSION['admin'])) {
         </table>
     </section>
     <footer class="">
-        <a href="../home.php" class=''><i class="fa fa-home" aria-hidden="true"></i></a>
+        <a href=".../home.php" class=''><i class="fa fa-home" aria-hidden="true"></i></a>
         <a href="" class=''><i class="fa fa-calculator" aria-hidden="true"></i></a>
         <a href="" class=""><i class="fa fa-university" aria-hidden="true"></i></a>
     </footer>

@@ -70,8 +70,8 @@ $c_user = $result->num_rows;
                         Chit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./chit/request.php">request chit</a>
-                        <a class="dropdown-item" href="./chit/approved.php">approved chit</a>
+                        <a class="dropdown-item" href="./chit/request.php">request </a>
+                        <a class="dropdown-item" href="./chit/approved.php">approved </a>
                         <a class="dropdown-item" href="./chit/pending.php">pending chit</a>
                     </div>
                 </div>
@@ -81,9 +81,9 @@ $c_user = $result->num_rows;
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./gold/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./gold/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./gold/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./gold/request.php">request </a>
+                        <a class="dropdown-item" href="./gold/approved.php">approved </a>
+                        <a class="dropdown-item" href="./gold/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -92,9 +92,9 @@ $c_user = $result->num_rows;
                         Education
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./edu/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./edu/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./edu/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./edu/request.php">request </a>
+                        <a class="dropdown-item" href="./edu/approved.php">approved </a>
+                        <a class="dropdown-item" href="./edu/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -103,9 +103,9 @@ $c_user = $result->num_rows;
                         Festivel
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./festivel/request.php">request Gold</a>
-                        <a class="dropdown-item" href="./festivel/approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./festivel/pending.php">pending Giold</a>
+                        <a class="dropdown-item" href="./festivel/request.php">request </a>
+                        <a class="dropdown-item" href="./festivel/approved.php">approved </a>
+                        <a class="dropdown-item" href="./festivel/pending.php">pending </a>
                     </div>
                 </div>
                 <a href="./invite.php" class="nav-items">Invite</a>
@@ -172,7 +172,9 @@ $c_user = $result->num_rows;
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">Customers</h5>
-                                            <span class="h2 font-weight-bold mb-0"><?php echo ($c_user) ?></span>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php echo ($c_user) ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon ">
@@ -215,7 +217,9 @@ $c_user = $result->num_rows;
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">Pending</h5>
-                                            <span class="h2 font-weight-bold mb-0"><?php echo ($c_pending) ?></span>
+                                            <span class="h2 font-weight-bold mb-0">
+                                                <?php echo ($c_pending) ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon ">

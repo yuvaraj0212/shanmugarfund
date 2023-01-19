@@ -59,9 +59,9 @@ if (!isset($_SESSION['admin'])) {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                        <a class="dropdown-item" href="./request.php">request</a>
-                        <a class="dropdown-item" href="./approved.php">approved</a>
-                        <a class="dropdown-item" href="./pending.php">pending</a>
+                        <a class="dropdown-item" href="../chit/request.php">request </a>
+                        <a class="dropdown-item" href="../chit/approved.php">approved </a>
+                        <a class="dropdown-item" href="../chit/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -70,9 +70,9 @@ if (!isset($_SESSION['admin'])) {
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../gold/request.php">request</a>
-                        <a class="dropdown-item" href="../gold/approved.php">approved</a>
-                        <a class="dropdown-item" href="../gold/pending.php">pending</a>
+                        <a class="dropdown-item" href="../gold/request.php">request </a>
+                        <a class="dropdown-item" href="../gold/approved.php">approved </a>
+                        <a class="dropdown-item" href="../gold/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -81,9 +81,9 @@ if (!isset($_SESSION['admin'])) {
                         Education
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../edu/request.php">request</a>
-                        <a class="dropdown-item" href="../edu/approved.php">approved</a>
-                        <a class="dropdown-item" href="../edu/pending.php">pending</a>
+                        <a class="dropdown-item" href="../edu/request.php">request </a>
+                        <a class="dropdown-item" href="../edu/approved.php">approved </a>
+                        <a class="dropdown-item" href="../edu/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -92,9 +92,9 @@ if (!isset($_SESSION['admin'])) {
                         Festivel
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../festivel/request.php">request</a>
-                        <a class="dropdown-item" href="../festivel/approved.php">approved</a>
-                        <a class="dropdown-item" href="../festivel/pending.php">pendin</a>
+                        <a class="dropdown-item" href="./request.php">request </a>
+                        <a class="dropdown-item" href="./approved.php">approved </a>
+                        <a class="dropdown-item" href="./pending.php">pending </a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -112,9 +112,9 @@ if (!isset($_SESSION['admin'])) {
                         class="nav-items">chit</a>
                     <ul class="plans ms-3">
 
-                        <li><a href="./request.php" class="plans-item">Requst</a></li>
-                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
-                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
+                        <li><a href="../chit/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../chit/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../chit/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
@@ -136,9 +136,9 @@ if (!isset($_SESSION['admin'])) {
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
                         class="nav-items">Festivel</a>
                     <ul class="plans ms-3">
-                        <li><a href="../festival/request.php" class="plans-item">Requst</a></li>
-                        <li><a href="../festivel/pending.php" class="plans-item">Pending</a></li>
-                        <li><a href="../festivel/approved.php" class="plans-item">Approved</a></li>
+                        <li><a href="./request.php" class="plans-item">Requst</a></li>
+                        <li><a href="./pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="./approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
@@ -152,13 +152,17 @@ if (!isset($_SESSION['admin'])) {
     </header>
     <section class="admin-section my-lg-5 container table-responsive">
         <table id="example" class="table table-striped table-bordered bg-light" style="width:100%">
-            <h2>Chit Pending Details</h2>
+            <h2>festival Approved Details</h2>
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
                     <th>Phones</th>
+                    <th>Plan</th>
                     <th>Plan Amount</th>
+                    <th>Blance Amount</th>
+                    <th>paid Amount</th>
+                    <th>next due Amount</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -166,42 +170,48 @@ if (!isset($_SESSION['admin'])) {
             <tbody>
                 <?php
                 include "../../../config.php";
-                $sql = "SELECT * FROM user_table where chit_status = 'pending'";
+                $sql = "SELECT * FROM festival_funds_table ";
                 $result = $db->query($sql);
-
+                // INSERT INTO `chit_funds_table`(`userId`, `blance_amount`, `paid_amount`, `name`, `phone`) VALUES (16,'1,80,000','20,000','yuvaraj','7092327466')
                 if ($result->num_rows > 0) {
-                    function getstatus($value)
+                    // $batch;
+                    function getBatchNo($id)
                     {
-                        if ($value === 'request') {
-                            return '<span class="badge badge-danger">Request</span>';
-                        }
-                        if ($value === 'pending') {
-                            return '<span class="badge badge-warning">Pending</span>';
-                        }
-                        if ($value === 'approved') {
-                            return '<span class="badge badge-success">Approved</span>';
+                        $batch = $id / 20;
+                        // $value;
+                        for ($i = 1; $i < 1000; $i++) {
+                            if ($batch <= 1) {
+                                $value = '<span class="badge badge-info">batch 1</span>';
+                                break;
+                            }
+                            if ($batch > $i && $batch <= ($i + 1)) {
+                                $value = '<span class="badge badge-info">batch ' . ++$i . '</span>';
+                                break;
+                            }
 
-                        } else {
-                            return '<span class="badge badge-info">Null</span>';
                         }
 
+                        return $value;
                     }
-
                     // output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo ("<tr>
-                            <th>" . $row["id"] . "</th>
+                            <th>" . $row["userId"] . "</th>
                             <th>" . $row["name"] . "</th> 
                             <th>" . $row["phone"] . "</th>
-                            <th>" . $row["chit_amount"] . "</th>
-                            <th>" . getstatus($row["chit_status"]) . "</th> 
-                            <td><a class='btn btn-info' href='pendingUpdate.php?id=" . $row['id'] . " '>Edit</a></td>
+                            <th>" . $row["festival"] . "</th>
+                            <th>" . $row["festival_amount"] . "</th>
+                            <th>" . $row["blance_amount"] . "</th>
+                            <th>" . $row["paid_amount"] . "</th>
+                            <th>" . $row["paid_amount"] . "</th>
+                            <th><span class='badge badge-success'>paid</span></th>
+                            <th>-</th>
                        
                          </tr>");
                     }
 
                 }
-
+                // <td><a class='btn btn-info' href='#'>Edit</a></td>
                 ?>
             </tbody>
 

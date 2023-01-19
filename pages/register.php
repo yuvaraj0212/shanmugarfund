@@ -8,6 +8,16 @@ if (isset($_POST["register"])) {
     $phone = $_POST["phone"];
     $password = md5($password);
 
+    $p_path = "IMG-" . basename($_FILES["pan"]["name"]);
+    $a_path = "IMG-" . basename($_FILES["adhar"]["name"]);
+    $pan = $_FILES["pan"]["tmp_name"];
+    $adhar = $_FILES["adhar"]["tmp_name"];
+
+
+    move_uploaded_file($pan, "storage/" . $p_path);
+
+    move_uploaded_file($adhar, "storage/" . $a_path);
+
     $sql_u = "select * from user_table where email='$email'";
     $sql_p = "select * from user_table where phone='$phone'";
     $res_p = mysqli_query($db, $sql_p) or die(mysqli_error($db));
@@ -15,7 +25,7 @@ if (isset($_POST["register"])) {
     if (mysqli_num_rows($res) > 0 || mysqli_num_rows($res_p) > 0) {
         $name_error = "Email or Mobile Already Exist";
     } else {
-        $sql = "insert into `user_table`(name,email,phone,password) value('$name','$email','$phone','$password')";
+        $sql = "insert into `user_table`(name,email,phone,password,pan,adhar) value('$name','$email','$phone','$password','$p_path','$a_path')";
         $result = mysqli_query($db, $sql);
         if ($result) {
 
@@ -25,8 +35,9 @@ if (isset($_POST["register"])) {
             $_SESSION['login'] = true;
             $_SESSION['userDetails'] = $row;
             echo '<script> 
-        window.location.href="./intro1.php";
-        </script>';
+            window.location.href="./intro1.php";
+            </script>';
+            // echo "uploaded succes";
         } else {
             echo '<script> 
         alert("Register Unsecusseful")
@@ -55,7 +66,7 @@ if (isset($_POST["register"])) {
 <body>
     <div class="container">
         <h1 class="head-titele">Shanmugar Gold & Savings chits</h1>
-        <form class="form" method="post">
+        <form class="form" method="post" enctype="multipart/form-data">
             <div class="form-layout">
                 <h2><b>Create an account</b></h2>
 
@@ -63,9 +74,9 @@ if (isset($_POST["register"])) {
                     <h3>create your account at<br>Shanmugar Gold &Savings<br>Chits.</h3>
                 </div>
                 <?php if (isset($name_error)): ?>
-                <p id="error" class="text-center text-danger">
-                    <?php echo ($name_error) ?>
-                </p>
+                    <p id="error" class="text-center text-danger">
+                        <?php echo ($name_error) ?>
+                    </p>
                 <?php endif ?>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Name" name="name" required
@@ -81,6 +92,16 @@ if (isset($_POST["register"])) {
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Password" name="password" required
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <p class="text-center">Pan</p>
+                    <input type="file" class="form-control" placeholder="Password" name="pan" required
+                        autocomplete="off">
+                </div>
+                <p class="text-center">Adhar</p>
+                <div class="form-group">
+                    <input type="file" class="form-control" placeholder="Password" name="adhar" required
                         autocomplete="off">
                 </div>
                 <button type="submit" name="register" class=" form-control bg-success">Sign up</button>

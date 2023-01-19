@@ -106,11 +106,17 @@ $_SESSION['userDetails'] = $row;
                 echo ('<div class="balance-card text-center">
                 <h5>Your Request has send succesfully</h5>
                 <h4>Pls Wait Admin Conformation</h4>
+                <div class="gold-add-img">
+                <img src="../../assets/images/coins.png" alt="">
+            </div>
             </div>');
             }
             if ($_SESSION['userDetails']['gold_status'] === "pending") {
                 echo ('<div class="balance-card text-center">
                 <h5>Your Request has Pending</h5>
+                <div class="gold-add-img">
+                <img src="../../assets/images/coins.png" alt="">
+            </div>
             </div>');
             }
             if ($_SESSION['userDetails']['gold_status'] === "approved") {

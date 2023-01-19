@@ -58,9 +58,10 @@ if (!isset($_SESSION['admin'])) {
                         Chit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./request.php">request chit</a>
-                        <a class="dropdown-item" href="./approved.php">approved chit</a>
-                        <a class="dropdown-item" href="./pending.php">pending chit</a>
+
+                        <a class="dropdown-item" href="./request.php">request </a>
+                        <a class="dropdown-item" href="./approved.php">approved </a>
+                        <a class="dropdown-item" href="./pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -69,9 +70,31 @@ if (!isset($_SESSION['admin'])) {
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../gold/request.php">request chit</a>
-                        <a class="dropdown-item" href="../gold/approved.php">approved chit</a>
-                        <a class="dropdown-item" href="../gold/pending.php">pending chit</a>
+                        <a class="dropdown-item" href="../gold/request.php">request </a>
+                        <a class="dropdown-item" href="../gold/approved.php">approved </a>
+                        <a class="dropdown-item" href="../gold/pending.php">pending </a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Education
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../edu/request.php">request </a>
+                        <a class="dropdown-item" href="../edu/approved.php">approved </a>
+                        <a class="dropdown-item" href="../edu/pending.php">pending </a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Festivel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../festivel/request.php">request </a>
+                        <a class="dropdown-item" href="../festivel/approved.php">approved </a>
+                        <a class="dropdown-item" href="../festivel/pending.php">pending </a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -88,6 +111,7 @@ if (!isset($_SESSION['admin'])) {
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
                         class="nav-items">chit</a>
                     <ul class="plans ms-3">
+
                         <li><a href="./request.php" class="plans-item">Requst</a></li>
                         <li><a href="./pending.php" class="plans-item">Pending</a></li>
                         <li><a href="./approved.php" class="plans-item">Approved</a></li>
@@ -99,6 +123,22 @@ if (!isset($_SESSION['admin'])) {
                         <li><a href="../gold/request.php" class="plans-item">Requst</a></li>
                         <li><a href="../gold/pending.php" class="plans-item">Pending</a></li>
                         <li><a href="../gold/approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Education</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../edu/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../edu/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../edu/approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Festivel</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../festival/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../festivel/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../festivel/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->

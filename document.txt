@@ -1,0 +1,85 @@
+############### create table #############
+CREATE TABLE `user_table` (
+  `chit_status` varchar(50) DEFAULT NULL,
+  `chit_amount` varchar(230) NOT NULL,
+  `gold_status` varchar(50) DEFAULT NULL,
+  `gold_amount` varchar(50) NOT NULL,
+  `education_status` varchar(50) DEFAULT NULL,
+  `education_amount` varchar(50) NOT NULL,
+  `festival_status` varchar(50) DEFAULT NULL,
+  `festival_amount` varchar(15) NOT NULL,
+  `festival` varchar(39) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `loginAs` varchar(50) NOT NULL DEFAULT 'user',
+  `reg_date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chit_funds_table`
+--
+
+CREATE TABLE `chit_funds_table` (
+  `batch_no` int(255) NOT NULL,
+  `userId` int(255) NOT NULL,
+  `blance_amount` varchar(50) NOT NULL,
+  `paid_amount` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `chit_amount` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+
+-- Table structure for table `education_funds_table`
+--
+
+CREATE TABLE `education_funds_table` (
+  `userId` int(255) NOT NULL,
+  `blance_amount` varchar(50) NOT NULL,
+  `paid_amount` varchar(50) NOT NULL,
+  `education_amount` varchar(250) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `next_due` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `gold_funds_table`
+--
+
+CREATE TABLE `gold_funds_table` (
+  `userId` int(255) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `gold_amount` varchar(50) NOT NULL,
+  `blance_amount` varchar(50) NOT NULL,
+  `paid_amount` varchar(50) NOT NULL,
+  `next_due` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `festival_funds_table`
+--
+
+CREATE TABLE `chit_funds_table` (
+  `userId` int(255) NOT NULL,
+  `blance_amount` varchar(50) NOT NULL,
+  `paid_amount` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `festival_amount` varchar(250) NOT NULL,
+  `next_due` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+

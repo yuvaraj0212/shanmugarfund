@@ -11,9 +11,9 @@ body {
 a,
 .dropdown,
 li {
-  text-decoration: none;
-  list-style: none;
-  color: #35892a;
+  text-decoration: none !important;
+  list-style: none !important;
+  color: #35892a !important;
 }
 /* navbar */
 .topnav {
@@ -51,7 +51,9 @@ li {
   position: relative;
   display: inline-block;
 }
-
+a#dropdownMenuButton {
+  color: #35892a !important;
+}
 .dropdown-content {
   display: none;
   right: 1;

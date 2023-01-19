@@ -83,6 +83,8 @@ $_SESSION['userDetails'] = $row;
                 <?php echo ($_SESSION['userDetails']['name']) ?>!
             </h1>
             <?php
+            //    chit
+            
             if ($_SESSION['userDetails']['chit_status'] === null) {
                 echo ('
                 <a href="chit.php">
@@ -96,31 +98,83 @@ $_SESSION['userDetails'] = $row;
                 echo ('
                 <a href="chit.php">
                 <div class="balance-card text-center">
-            <h5>Your Request has send succesfully</h5>
-            <h4>Pls Wait Admin Conformation</h4>
+            <h5>Your chit Request has send succesfully</h5>
         </div></a>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "pending") {
                 echo ('
                 <a href="chit.php">
                 <div class="balance-card text-center">
-            <h5>Your Request has Pending</h5>
+            <h5>Your chit Request has Pending</h5>
         </div></a>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "approved") {
+                $plan = $_SESSION['userDetails']['chit_amount'];
                 echo (' 
                 <div>
-                <a href="chit.php">
-                <div class="balance-card">
-                  <h1>Savings chit balance</h1>
-                  <span id="chit-blance">Rs.30,000</span>
+                <a href="chit.php" class="text-center">
+                <div class="balance-card ">
+                  <h1>chit Savings</h1>
+                  <span id="chit-blance"><b> Plan amount = ' . $plan . ' </b></span>
               </div>
               </a>
-              <div class="balance-amount">
-                  <h4>Total Amount Paid - </h4>
-                  <h4>Balance Amount - </h4>
-              </div> 
+              
               </div>');
+            }
+
+            // Gold
+            
+            if ($_SESSION['userDetails']['gold_status'] === null) {
+                echo ('
+               
+                <div class="balance-card text-center">
+                <h3><a href="./goldRequest.php" class="add-chit"> Add New Gold plan</a></h3>
+                </div>
+                    ');
+            }
+            if ($_SESSION['userDetails']['gold_status'] === "request") {
+                echo ('
+                <a href="./gold.php"><div class="balance-card text-center">
+                <h5>Your gold Request has send succesfully</h5>
+         </div></a>');
+            }
+            if ($_SESSION['userDetails']['gold_status'] === "pending") {
+                echo ('<div class="balance-card text-center">
+                <a href="./gold.php"><h5>Your gold Request has Pending</h5></a>
+            </div>');
+            }
+            if ($_SESSION['userDetails']['gold_status'] === "approved") {
+                echo ('  <a href="./gold.php">  <div class="balance-card text-center">
+                <h1>Gold Savings  </h1>
+                <span id="chit-blance"><b> Plan amount =  ' . $_SESSION['userDetails']['gold_amount'] * 12 . ' </b></span>
+            </div>
+              </a>
+');
+            }
+            // education
+            if ($_SESSION['userDetails']['education_status'] === null) {
+                echo ('
+                <div class="balance-card text-center">
+                <h3><a href="./educationRequest.php" class="add-chit"> Add New eduction plan</a></h3>
+            </div>
+               ');
+            }
+            if ($_SESSION['userDetails']['education_status'] === "request") {
+                echo ('<div class="balance-card text-center">
+                <a href="./education.php"> <h5>Your education Request has send succesfully</h5></a>
+        </div>');
+            }
+            if ($_SESSION['userDetails']['education_status'] === "pending") {
+                echo ('<div class="balance-card text-center">
+                <a href="./education.php"> <h5>Your  education Request has Pending</h5></a>
+        </div>');
+            }
+            if ($_SESSION['userDetails']['education_status'] === "approved") {
+                echo (' <div class="balance-card text-center">
+                  <h1>Savings eduction balance</h1>
+                  <a href="./education.php">     <span id="chit-blance"><b> Plan amount =  ' . $_SESSION['userDetails']['education_amount'] . ' </b></span>
+          </a></div>
+             ');
             }
             ?>
 

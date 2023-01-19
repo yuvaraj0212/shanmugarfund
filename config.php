@@ -19,7 +19,7 @@ if ($db->connect_error) {
 // $servername = "localhost";
 // $username = "adcbcoin_shanmugarfunds";
 // $password = "![.H4p+nd7bM";
-// $database = "adcbcoin_shanmugar";
+// $database = "adcbcoin_shanmugarfund";
 // // Create connection
 // $db = new mysqli($servername, $username, $password, $database);
 

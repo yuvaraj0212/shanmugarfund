@@ -6,6 +6,7 @@ if (isset($_POST["SendRequest"])) {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $planAmount = $_POST["plan_amount"];
+    $plan = $_POST["plan"];
     $phone = $_POST["phone"];
     $id = $_POST["id"];
     $status = $_POST["status"];
@@ -18,7 +19,7 @@ if (isset($_POST["SendRequest"])) {
     $mail->Subject = 'THANKS FOR SUBSCRIBING SHANMUGAR FUNDS ';
 
     // Mail body content 
-    $bodyContent = '<h1>Education funds Status</h1>
+    $bodyContent = '<h1>Chit funds Status</h1>
 <p>Hi ' . $name . ', </p><br>
 Your request Now ' . $status . '.<br>
 pls check your mobile app
@@ -27,12 +28,12 @@ pls check your mobile app
     $mail->Body = $bodyContent;
 
     if ($status === 'approved') {
-        $sql = "  INSERT INTO `education_funds_table`(`userId`,`education_amount`, `blance_amount`, `paid_amount`, `name`, `phone`) 
-        VALUES ($id,'$planAmount','0','0','$name','$phone');";
+        $sql = "  INSERT INTO `festival_funds_table`(`userId`,`festival_amount`, `blance_amount`,`festival`, `paid_amount`, `name`, `phone`) 
+        VALUES ($id,'$planAmount','0','$plan','0','$name','$phone');";
         $result = $db->query($sql);
 
         if ($result == TRUE) {
-            $sql = "UPDATE `user_table` SET `education_status` = '$status',`education_amount`='$planAmount'  WHERE `id`=$id";
+            $sql = "UPDATE `user_table` SET `festival_status` = '$status',`festival_amount`='$planAmount',`festival`='$plan'  WHERE `id`=$id";
             $result = $db->query($sql);
 
             if ($result == TRUE) {
@@ -54,7 +55,7 @@ pls check your mobile app
         }
 
     } else {
-        $sql = "UPDATE `user_table` SET `education_status` = '$status' ,`education_amount`='$planAmount' WHERE `id`=$id";
+        $sql = "UPDATE `user_table` SET `festival_status` = '$status' ,`festival_amount`='$planAmount',`festival`='$plan' WHERE `id`=$id";
 
         $result = $db->query($sql);
 
@@ -86,6 +87,7 @@ if (isset($_GET['id'])) {
 
     if ($result->num_rows > 0) {
 
+
         $row = $result->fetch_assoc();
 
         $name = $row['name'];
@@ -94,7 +96,11 @@ if (isset($_GET['id'])) {
 
         $email = $row['email'];
 
-        $planAmount = $row['education_amount'];
+        $planAmount = $row['festival_amount'];
+
+        // $planAmount = $row['festival_amount'];
+
+        $plan = $row['festival'];
 
         // $gender = $row['gender'];
 
@@ -122,22 +128,10 @@ if (isset($_GET['id'])) {
         <h1 class="head-titele">Shanmugar Gold & Savings chits</h1>
         <form class="form" method="POST">
             <div class="form-layout text-center">
-                <h2><b>Welcome to Education schemes</b></h2>
+                <h2><b>Welcome to Chit fund schemes</b></h2>
                 <div class="img-row">
-                    <h3>Interest 11%, months-12</h3>
+                    <h3>Interest 9.5%, months-20</h3>
                 </div>
-                <!-- <p class="mt-4"><b>Name :</b>
-                    <?php# echo ($name) ?>
-                </p>
-                <p class=""><b>Email :</b>
-                    <?php# echo ($email) ?>
-                </p>
-                <p class=""><b>Phone :</b>
-                    <?php #echo ($phone) ?>
-                </p>
-                <p class=""><b>planAmount :</b>
-                    <?php #echo ($planAmount) ?>
-                </p> -->
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Name" name="name" readonly
                         autocomplete="off" value="<?php echo $name; ?>">
@@ -151,87 +145,102 @@ if (isset($_GET['id'])) {
                     <input type="number" class="form-control" placeholder="Enter mobile" name="phone" readonly
                         autocomplete="off" value="<?php echo $phone; ?>">
                 </div>
+
                 <!-- <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter plane" name="plan_amount" readonly
-                        autocomplete="off" value="<?#php echo $planAmount; ?>">
-                </div> -->
+                    <p class='text-center'><b>select your plan:</b></p>
+                    <select name="plan" id="cars" class="form-control form-select" required autocomplete="off" readonly>
+                        <option value="">
+                            <?php ?>
+                        </option>
+                        <option value="Dewali">Dewali Saving Scheme</option>
+                        <option value="Pongal">Pongal Saving Scheme</option>
+                        <option value="Bakrid">Bakrid Saving Scheme</option>
+                        <option value="Ramzan">Ramzan Saving Scheme</option>
+                        <option value="FestivalSpecial">Festival Special Scheme</option> 
+                    </select>
+                </div>-->
+
                 <select id="cars" class="form-control form-select" required autocomplete="off" name="plan_amount"
                     value="<?php echo $planAmount; ?>">
                     <?php
                     switch ($planAmount) {
-                        case '25000':
-                            echo ('  <option value="25000" selected>25000</option>
-        <option value="75000">75000</option>
-        <option value="100000">100000</option>
-        <option value="125000">125000</option>
-        <option value="150000">150000</option>
-        <option value="175000">175000</option>
-        <option value="200000">200000</option>');
-
+                        case '3000':
+                            echo ('  <option value="3000" selected>3000</option>
+        <option value="6000">6000</option>
+        <option value="9000">9000</option>
+        <option value="12000">12000</option>
+        <option value="15000">15000</option>
+        <option value="18000">18000</option>
+        <option value="24000">24000</option>');
+                            ;
                             break;
-                        case "75000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000"selected>75000</option>
-        <option value="100000">100000</option>
-        <option value="125000">125000</option>
-        <option value="150000">150000</option>
-        <option value="175000">175000</option>
-        <option value="200000">200000</option>');
+                        case "6000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000"selected>6000</option>
+        <option value="9000">9000</option>
+        <option value="12000">12000</option>
+        <option value="15000">15000</option>
+        <option value="18000">18000</option>
+        <option value="24000">24000</option>');
                             break;
-                        case "100000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000">75000</option>
-        <option value="100000"selected>100000</option>
-        <option value="125000">125000</option>
-        <option value="150000">150000</option>
-        <option value="175000">175000</option>
-        <option value="200000">200000</option>');
+                        case "9000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000">6000</option>
+        <option value="9000"selected>9000</option>
+        <option value="12000">12000</option>
+        <option value="15000">15000</option>
+        <option value="18000">18000</option>
+        <option value="24000">24000</option');
                             break;
-                        case "125000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000">75000</option>
-        <option value="100000">100000</option>
-        <option value="125000"selected>125000</option>
-        <option value="150000">150000</option>
-        <option value="175000">175000</option>
-        <option value="200000">200000</option>');
-
+                        case "12000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000">6000</option>
+        <option value="9000">9000</option>
+        <option value="12000"selected>12000</option>
+        <option value="15000">15000</option>
+        <option value="18000">18000</option>
+        <option value="24000">24000</option>');
+                            ;
                             break;
-                        case "150000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000">75000</option>
-        <option value="100000">100000</option>
-        <option value="125000">125000</option>
-        <option value="150000"selected>150000</option>
-        <option value="175000">175000</option>
-        <option value="200000">200000</option>');
+                        case "15000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000">6000</option>
+        <option value="9000">9000</option>
+        <option value="12000">12000</option>
+        <option value="15000"selected>15000</option>
+        <option value="18000">18000</option>
+        <option value="24000">24000</option>');
                             break;
-                        case "175000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000">75000</option>
-        <option value="100000">100000</option>
-        <option value="125000">125000</option>
-        <option value="150000">150000</option>
-        <option value="175000"selected>175000</option>
-        <option value="200000">200000</option>');
+                        case "18000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000">6000</option>
+        <option value="9000">9000</option>
+        <option value="12000">12000</option>
+        <option value="15000">15000</option>
+        <option value="18000"selected>18000</option>
+        <option value="24000">24000</option>');
                             break;
-                        case "200000":
-                            echo ('  <option value="25000">25000</option>
-        <option value="75000">75000</option>
-        <option value="100000">100000</option>
-        <option value="125000">125000</option>
-        <option value="150000">150000</option>
-        <option value="175000">175000</option>
-        <option value="200000"selected>200000</option>');
-
+                        case "24000":
+                            echo ('  <option value="3000">3000</option>
+        <option value="6000">6000</option>
+        <option value="9000">9000</option>
+        <option value="12000">12000</option>
+        <option value="15000">15000</option>
+        <option value="18000">18000</option>
+        <option value="24000"selected>24000</option>');
+                            ;
                             break;
 
                     }
                     ?>
                 </select>
                 <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter plan" name="plan" readonly
+                        autocomplete="off" value="<?php echo $plan; ?>">
+                </div>
+                <div class="form-group">
 
-                    <select name="status" id="cars" class="form-control" required autocomplete="off">
+                    <select name="status" id="cars" class="form-control form-select" required autocomplete="off">
                         <option value="request">Request</option>
                         <option value="pending">Pending</option>
                         <option value="approved">Approved</option>

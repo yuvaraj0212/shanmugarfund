@@ -58,9 +58,10 @@ if (!isset($_SESSION['admin'])) {
                         Chit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../chit/request.php">request chit</a>
-                        <a class="dropdown-item" href="../chit/approved.php">approved chit</a>
-                        <a class="dropdown-item" href="../chit/pending.php">pending chit</a>
+
+                        <a class="dropdown-item" href="../chit/request.php">request </a>
+                        <a class="dropdown-item" href="../chit/approved.php">approved </a>
+                        <a class="dropdown-item" href="../chit/pending.php">pending </a>
                     </div>
                 </div>
                 <div class="dropdown nav-items ">
@@ -69,9 +70,31 @@ if (!isset($_SESSION['admin'])) {
                         Gold
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="./request.php">request Gold</a>
-                        <a class="dropdown-item" href="./approved.php">approved Gold</a>
-                        <a class="dropdown-item" href="./pending.php">pending Gold</a>
+                        <a class="dropdown-item" href="./request.php">request </a>
+                        <a class="dropdown-item" href="./approved.php">approved </a>
+                        <a class="dropdown-item" href="./pending.php">pending </a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Education
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../edu/request.php">request </a>
+                        <a class="dropdown-item" href="../edu/approved.php">approved </a>
+                        <a class="dropdown-item" href="../edu/pending.php">pending </a>
+                    </div>
+                </div>
+                <div class="dropdown nav-items ">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Festivel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../festivel/request.php">request </a>
+                        <a class="dropdown-item" href="../festivel/approved.php">approved </a>
+                        <a class="dropdown-item" href="../festivel/pending.php">pending </a>
                     </div>
                 </div>
                 <a href="../invite.php" class="nav-items">Invite</a>
@@ -88,6 +111,7 @@ if (!isset($_SESSION['admin'])) {
                 <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
                         class="nav-items">chit</a>
                     <ul class="plans ms-3">
+
                         <li><a href="../chit/request.php" class="plans-item">Requst</a></li>
                         <li><a href="../chit/pending.php" class="plans-item">Pending</a></li>
                         <li><a href="../chit/approved.php" class="plans-item">Approved</a></li>
@@ -99,6 +123,22 @@ if (!isset($_SESSION['admin'])) {
                         <li><a href="./request.php" class="plans-item">Requst</a></li>
                         <li><a href="./pending.php" class="plans-item">Pending</a></li>
                         <li><a href="./approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Education</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../edu/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../edu/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../edu/approved.php" class="plans-item">Approved</a></li>
+                    </ul>
+                </li>
+                <li class="nav-items"><i class="fa fa-tasks" aria-hidden="true"></i><a href="#"
+                        class="nav-items">Festivel</a>
+                    <ul class="plans ms-3">
+                        <li><a href="../festival/request.php" class="plans-item">Requst</a></li>
+                        <li><a href="../festivel/pending.php" class="plans-item">Pending</a></li>
+                        <li><a href="../festivel/approved.php" class="plans-item">Approved</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-items"><i class="fa fa-money" aria-hidden="true"></i><a href="./payment.php">Payment</a> -->
@@ -123,6 +163,7 @@ if (!isset($_SESSION['admin'])) {
                     <th>Blance Amount</th>
                     <th>paid Amount</th>
                     <th>next due Amount</th>
+                    <th>total gram</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -151,10 +192,10 @@ if (!isset($_SESSION['admin'])) {
                             <th>" . getTotal($row["gold_amount"]) . "</th>
                             <th>" . $row["blance_amount"] . "</th>
                             <th>" . $row["paid_amount"] . "</th>
-                            <th>" . $row["paid_amount"] . "</th>
+                            <th>" . $row["gold_amount"] . "</th>
+                            <th>" . $row["total_gram"] . " gm</th>
                             <th><span class='badge badge-success'>paid</span></th>
-                            <th>-</th>
-                       
+                            <td><a class='btn btn-info' href='approvedUpdate.php?id=" . $row['userId'] . " '>Edit</a></td>
                          </tr>");
                     }
 

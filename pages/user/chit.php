@@ -97,23 +97,34 @@ $_SESSION['userDetails'] = $row;
                 <div class="balance-card text-center">
                 <h3><a href="./chitRequest.php" class="add-chit"> Add New Chit</a></h3>
             </div>
+            <div class="gold-add-img">
+            <img src="../../assets/images/crtifed.png" alt="">
+        </div>
                ');
             }
             if ($_SESSION['userDetails']['chit_status'] === "request") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has send succesfully</h5>
             <h4>Pls Wait Admin Conformation</h4>
-        </div>');
+        </div>
+        <div class="gold-add-img">
+        <img src="../../assets/images/crtifed.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "pending") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has Pending</h5>
-        </div>');
+        </div>
+        <div class="gold-add-img">
+        <img src="../../assets/images/crtifed.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['chit_status'] === "approved") {
-                echo (' <div class="balance-card">
-                  <h1>Savings chit balance</h1>
-                  <span id="chit-blance">Rs.30,000</span>
+                $plan = $_SESSION['userDetails']['chit_amount'];
+                echo (' 
+                <div class="balance-card ">
+                  <h1>Savings chit </h1>
+                  <span id="chit-blance"><b> Plan amount = ' . $plan . ' </b></span>
               </div>
               <div class="balance-amount">
                   <h4>Total Amount Paid - </h4>

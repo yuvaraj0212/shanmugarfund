@@ -10,6 +10,7 @@ if (isset($_SESSION['login'])) {
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
+
     $password = md5($password);
 
     $sql = "SELECT * FROM `user_table` WHERE email = '$email' or phone ='$email' AND password = '$password'";
@@ -73,10 +74,10 @@ if (isset($_POST["login"])) {
                 </div>
                 <?php
                 if (isset($_SESSION['error'])) { ?>
-                <p id="error" class="text-danger text-center">
-                    <?= $_SESSION['error']; ?>
-                </p>
-                <?php unset($_SESSION['error'])
+                    <p id="error" class="text-danger text-center">
+                        <?= $_SESSION['error']; ?>
+                    </p>
+                    <?php unset($_SESSION['error'])
                     ;
                 } ?>
                 <div class="form-group">
@@ -87,6 +88,7 @@ if (isset($_POST["login"])) {
                     <input type="password" class="form-control" placeholder="Password" name="password" required
                         autocomplete="off">
                 </div>
+
                 <button type="submit" name="login" class=" form-control bg-success">Submit</button>
 
                 <p class="text-center">Forget Password ?</p>

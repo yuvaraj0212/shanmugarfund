@@ -97,18 +97,25 @@ $_SESSION['userDetails'] = $row;
                 <div class="balance-card text-center">
                 <h3><a href="./festivalRequest.php" class="add-chit"> Add New festival plan</a></h3>
             </div>
+            <div class="gold-add-img">
+            <img src="../../assets/images/savings.png" alt="">
+        </div>
                ');
             }
             if ($_SESSION['userDetails']['festival_status'] === "request") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has send succesfully</h5>
             <h4>Pls Wait Admin Conformation</h4>
-        </div>');
+        </div><div class="gold-add-img">
+        <img src="../../assets/images/savings.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['festival_status'] === "pending") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has Pending</h5>
-        </div>');
+        </div><div class="gold-add-img">
+        <img src="../../assets/images/savings.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['festival_status'] === "approved") {
                 echo (' <div class="balance-card">

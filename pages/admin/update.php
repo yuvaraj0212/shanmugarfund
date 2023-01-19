@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
 
         $email = $row['email'];
 
-        $planAmount = $row['chit_amount'];
+        $planAmount = $row['festival_amount'];
 
         // $gender = $row['gender'];
 

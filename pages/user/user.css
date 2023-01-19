@@ -114,6 +114,10 @@ li.nav-items {
   header {
     height: 11%;
   }
+  ul {
+    padding: 5px !important;
+  }
+
   section {
     height: 80%;
     overflow-y: scroll;
@@ -134,6 +138,12 @@ li.nav-items {
   }
   .nav-items:hover {
     border: none;
+  }
+  li.nav-items.logout {
+    border: 1px green solid;
+    padding: 9px;
+    text-align: center;
+    margin-top: 30px;
   }
   .mobile-nav {
     position: absolute;

@@ -9,10 +9,11 @@ if (!isset($_SESSION['login'])) {
 }
 if (isset($_POST["SendRequest"])) {
     $planamt = $_POST["planeAmount"];
+    $plan = $_POST["plan"];
     $id = (int) $_SESSION['userDetails']['id'];
     $name = (int) $_SESSION['userDetails']['name'];
     $due = (string) ((int) $planamt / 9.17 * 100);
-    $sql = "UPDATE `user_table` SET `festival_status` = 'request', `festival_amount` = '$planamt'WHERE `user_table`.`id` = $id;";
+    $sql = "UPDATE `user_table` SET `festival_status` = 'request',`festival`='$plan', `festival_amount` = '$planamt' WHERE `user_table`.`id` = $id;";
     $result = mysqli_query($db, $sql);
     if ($result) {
         $sql = "SELECT * FROM `user_table`  WHERE `user_table`.`id` = $id;";
@@ -77,7 +78,6 @@ if (isset($_POST["SendRequest"])) {
             <div class="form-layout">
                 <h2><b>Welcome to Chit fund schemes</b></h2>
                 <div class="img-row">
-                    <h3>Interest 9.5%, months-20</h3>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Name" name="name" readonly
@@ -94,7 +94,7 @@ if (isset($_POST["SendRequest"])) {
 
                 <div class="form-group">
                     <p class='text-center'><b>select your plan:</b></p>
-                    <select name="plane" id="cars" class="form-control form-select" required autocomplete="off">
+                    <select name="plan" id="cars" class="form-control form-select" required autocomplete="off">
                         <option value="Dewali">Dewali Saving Scheme</option>
                         <option value="Pongal">Pongal Saving Scheme</option>
                         <option value="Bakrid">Bakrid Saving Scheme</option>

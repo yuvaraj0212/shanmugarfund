@@ -97,23 +97,33 @@ $_SESSION['userDetails'] = $row;
                 <div class="balance-card text-center">
                 <h3><a href="./educationRequest.php" class="add-chit"> Add New eduction plan</a></h3>
             </div>
+            <div class="gold-add-img">
+            <img src="../../assets/images/red coin.png" alt="">
+        </div>
                ');
             }
             if ($_SESSION['userDetails']['education_status'] === "request") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has send succesfully</h5>
             <h4>Pls Wait Admin Conformation</h4>
-        </div>');
+        </div>
+        <div class="gold-add-img">
+        <img src="../../assets/images/red coin.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['education_status'] === "pending") {
                 echo ('<div class="balance-card text-center">
             <h5>Your Request has Pending</h5>
-        </div>');
+        </div>
+        <div class="gold-add-img">
+        <img src="../../assets/images/red coin.png" alt="">
+    </div>');
             }
             if ($_SESSION['userDetails']['education_status'] === "approved") {
                 echo (' <div class="balance-card">
                   <h1>Savings eduction balance</h1>
-                  <span id="eduction-blance">Rs.30,000</span>
+                  <span id="chit-blance"><b> Plan amount =  ' . $_SESSION['userDetails']['education_amount'] . ' </b></span>
+       
               </div>
               <div class="balance-amount">
                   <h4>Total Amount Paid - </h4>
